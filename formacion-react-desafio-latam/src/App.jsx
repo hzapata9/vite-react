@@ -4,7 +4,8 @@ import './App.css'
 import List from './components/list.jsx'
 import ItemList from './components/itemlist.jsx'
 import { Link } from "react-router";
-
+import { useEffect } from 'react';
+import { getPosts, getPostsWithAxios } from './services/api.js';
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -21,6 +22,18 @@ function App() {
     const newTasks = tasks.filter((_, i) => i !== index);
     setTasks(newTasks);
   }
+
+  useEffect(() => {
+    getPosts().then((post) => {console.log(post) })
+      .catch((error) => {
+        console.error('Error fetching posts:', error);
+    });
+
+    getPostsWithAxios().then((post) => {console.log(post) })
+      .catch((error) => {
+        console.error('Error fetching posts Axios:', error);
+    });
+  }, []);
 
   return (
     <>
