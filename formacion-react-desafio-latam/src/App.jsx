@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import List from './components/list.jsx'
 import ItemList from './components/itemlist.jsx'
+import { Link } from "react-router";
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
   return (
     <>
       <h1>TO DO List..</h1>
+      <Link to="/hola">Go Path Hola</Link>
+      <br />
       <div className="card">
 
         <input type="text" placeholder="Escribe una tarea" value={tareaInput} onChange={(e) =>setTareaInput(e.target.value)} />
